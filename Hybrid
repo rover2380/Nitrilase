@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+$file=$ARGV[0];$file1=$ARGV[1];$file2=$ARGV[2];
+open(FP,"$file");open(FP1,"$file1");open (MERGE, ">$file2");
+my $line1 = <FP>;my $line2 = <FP1>;
+while (defined($line1) || defined($line2)){if (defined($line1)){       chomp($line1);    @A = split(/ /,$line1);#    print "@A";    print MERGE "@A";    $line1 = <FP>;}   if (defined($line2)){
+   chomp($line2);   @seq = split(/ /,$line2);#   print"@seq\n";   print MERGE " @seq\n";   $line2 = <FP1>;}   }
